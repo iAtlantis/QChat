@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qchat.mapper.AdminMapperCustom" >
+
+	<select id="queryAdmin" resultType="com.qchat.pojo.vo.AdminVO">
+
+		select
+			a.username as username,
+			a.create_date as createDate,
+			a.des as des
+		from
+			admin a
+	</select>
+
+	<select id="queryUsers" resultType="com.qchat.pojo.vo.UsersVO">
+		select
+			u.username as username,
+		    u.nickname as nickname
+		from
+			users u
+	</select>
+
+	<delete id="deleteAdmin">
+		delete from
+			admin
+		where
+			username = #{username}
+
+	</delete>
+</mapper>
